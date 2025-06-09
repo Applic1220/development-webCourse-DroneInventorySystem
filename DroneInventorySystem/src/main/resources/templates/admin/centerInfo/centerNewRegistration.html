@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/template :: layout(~{::title},~{::body/content()})}">
+
+<head>
+  <title>InvenTrack</title>
+  </head>
+
+<body>
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">在庫センター情報 登録画面</h6>
+    </div>
+    <div class="card-body">
+
+      <label for="searchTerm" class="mr-2">※必須項目</label>
+
+      <form th:action="@{'/admin/centerInfo/centerNewRegistrationExec'}" th:object="${centerNewRegistrationForm}" method="post">	
+        <div class="form-grid-container">
+            <label for="centerName" class="bordered-label">在庫センター名＊</label>
+            <input type="text" id="centerName" name="centerName" 
+                   class="form-control bordered-input" 
+                   th:field="*{centerName}" 
+                   th:classappend="${#fields.hasErrors('centerName')} ? 'is-invalid' : ''" 
+            />  
+            
+            <label for="postCode" class="bordered-label">郵便番号＊</label>
+            <input type="text" id="postCode" name="postCode" 
+                   class="form-control bordered-input" 
+                   th:field="*{postCode}" 
+                   th:classappend="${#fields.hasErrors('postCode')} ? 'is-invalid' : ''" 
+            />
+
+            <label for="address" class="bordered-label">住所＊</label>
+            <input type="text" id="address" name="address" 
+                   class="form-control bordered-input" 
+                   th:field="*{address}" 
+                   th:classappend="${#fields.hasErrors('address')} ? 'is-invalid' : ''" 
+            />
+
+            <label for="telephoneNumber" class="bordered-label">電話番号＊</label>
+            <input type="text" id="telephoneNumber" name="telephoneNumber" 
+                   class="form-control bordered-input" 
+                   th:field="*{telephoneNumber}" 
+                   th:classappend="${#fields.hasErrors('telephoneNumber')} ? 'is-invalid' : ''" 
+            />
+
+            <label for="administratorName" class="bordered-label">管理者名＊</label>
+            <input type="text" id="administratorName" name="administratorName" 
+                   class="form-control bordered-input" 
+                   th:field="*{administratorName}" 
+                   th:classappend="${#fields.hasErrors('administratorName')} ? 'is-invalid' : ''" 
+            />
+            <label class="bordered-label">稼働ステータス＊</label>
+            <div class="bordered-group">
+               <div class="form-check form-check-inline">
+                   <input class="form-check-input" type="radio" id="statusActive" name="operationalStatus" value="1" th:field="*{operationalStatus}"> 
+                   <label class="form-check-label" for="statusActive">稼働</label>
+               </div>
+               <div class="form-check form-check-inline">
+                   <input class="form-check-input" type="radio" id="statusInactive" name="operationalStatus" value="0" th:field="*{operationalStatus}"> 
+                   <label class="form-check-label" for="statusInactive">停止</label>
+               </div>
+            </div>
+            
+            <label for="maximumCapacity" class="bordered-label">最大容量(m3)</label>
+            <input type="number" id="maximumCapacity" name="maximumCapacity" 
+                   class="form-control bordered-input" 
+                   th:field="*{maximumCapacity}" 
+                   th:classappend="${#fields.hasErrors('maximumCapacity')} ? 'is-invalid' : ''" 
+            />
+
+            <label for="currentCapacity" class="bordered-label">現在容量(m3)</label>
+            <input type="number" id="currentCapacity" name="currentCapacity" 
+                   class="form-control bordered-input" 
+                   th:field="*{currentCapacity}" 
+                   th:classappend="${#fields.hasErrors('currentCapacity')} ? 'is-invalid' : ''" 
+             />
+
+            <label for="remarks" class="bordered-label">備考</label>
+            <input type="text" id="remarks" name="remarks" 
+                   class="form-control bordered-input" 
+                   th:field="*{remarks}" 
+                   th:classappend="${#fields.hasErrors('remarks')} ? 'is-invalid' : ''" 
+            />
+            <div th:if="${message}" class="alert alert-success" role="alert">
+    <p th:text="${message}"></p>
+</div>
+
+        </div> <div class="button-container">
+            <a class="nav-link" th:href="@{'/admin/centerInfo'}"> 
+                <button type="button" class="btn btn-secondary">キャンセル</button>
+            </a>
+            <button type="submit" class="btn btn-primary">登録</button>
+        </div>
+      </form> </div> </div> <script th:inline="javascript">
+		 var errorMessage = /*[[${errorMsg}]]*/ ''; 
+		// errorMessage が null または空文字列でないことを確認
+		if (errorMessage && errorMessage.trim() !== '') {
+			alert(errorMessage);
+		}
+	</script>
+	
+  </body>
+</html>

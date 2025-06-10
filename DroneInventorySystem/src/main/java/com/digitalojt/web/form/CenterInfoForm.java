@@ -16,7 +16,6 @@ import lombok.Data;
 @Data
 @CenterInfoFormValidator
 public class CenterInfoForm {
-
 	/**センター名*/
     @Size(max = ModelAttributeContents.MAX_CENTER_NAME_LENGTH, message = "{centerName.length.wrongInput}")
 	private String centerName;
@@ -46,4 +45,7 @@ public class CenterInfoForm {
 		}
 		return storageCapacityFrom;
 	}
+
+	
+	
 }

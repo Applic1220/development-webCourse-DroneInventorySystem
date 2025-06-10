@@ -10,7 +10,6 @@ import com.digitalojt.web.util.InputValidator;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-
 /**
  * 在庫センター情報のバリデーション処理実装
  * CenterInfoForm のフィールドに対してバリデーションを行うクラスです。
@@ -34,7 +33,7 @@ public class CenterInfoFormValidatorImpl implements ConstraintValidator<CenterIn
         }
         
         // センター名が不正文字に含まれる場合にエラー処理
-        if (isValidCenterName(form.getCenterName())) {
+        if (isValidText(form.getCenterName())) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(ErrorMessageHelper.getMessage(ErrorMessage.INVALID_INPUT_ERROR_MESSAGE))
                    .addConstraintViolation();
@@ -67,7 +66,7 @@ public class CenterInfoFormValidatorImpl implements ConstraintValidator<CenterIn
      * @param input
      * @return
      */
-    private boolean isValidCenterName(String input) {
+    private boolean isValidText(String input) {
         // 文字列の各文字を1つずつチェック
         for (char c : input.toCharArray()) {
             // 不正文字が含まれているか確認
@@ -79,7 +78,7 @@ public class CenterInfoFormValidatorImpl implements ConstraintValidator<CenterIn
     }
     
     /**
-     * 文字列のサイズチェックを実施する
+     * センター名文字列のサイズチェックを実施する
      * @param input
      * @return
      */

@@ -44,9 +44,6 @@ public class UrlConsts {
 	// 在庫センター情報画面 新規登録実行
 	public static final String CENTER_INFO_NEW_REGISTRATION_EXEC = "/admin/centerInfo/centerNewRegistrationExec";
 	
-	// 在庫センター情報画面 更新削除登録
-	public static final String CENTER_INFO_UPDATE_AND_DELETE_REGISTRATION = "/admin/centerInfo/centerupdateanddeleteregistration";
-	
 	// 操作履歴画面
 	public static final String  OPERATION_LOG = "/admin/operationLog";
 

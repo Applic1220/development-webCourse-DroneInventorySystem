@@ -1,7 +1,5 @@
 package com.digitalojt.web.validation;
 
-import java.util.regex.Pattern;
-
 import com.digitalojt.web.consts.ErrorMessage;
 import com.digitalojt.web.consts.InvalidCharacter;
 import com.digitalojt.web.consts.ModelAttributeContents;
@@ -91,22 +89,6 @@ public class CenterInfoFormValidatorImpl implements ConstraintValidator<CenterIn
          }
         return false;
     }   
-    
-    /**
-     * 郵便番号チェック
-     * @param value 検証対象の値
-     * @return true:郵便番号､false:郵便番号ではない
-     */
-    public static boolean isZipCodeHyphen(String value) {
-        boolean result = true;
-
-        if (value != null) {
-            Pattern pattern = Pattern.compile("^[0-9]{3}-[0-9]{4}$");
-            result = pattern.matcher(value).matches();
-        }
-
-        return result;
-    }
     
     /**
      * 文字が不正文字かをチェックするメソッド

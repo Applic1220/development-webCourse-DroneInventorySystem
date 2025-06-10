@@ -30,7 +30,7 @@ public class ErrorMessage {
 	public static final String POSTCODE_LENGTH_ERROR_MESSAGE = "postCode.length.wrongInput";
 	
 	// 郵便番号形式不一致に関するエラーメッセージ
-	public static final String POSTCODE_INVALID_INPUT_ERROR_MESSAGE = "postCode.invalid.input";
+	public static final String POSTCODE_FORMAT_INPUT_ERROR_MESSAGE = "postCode.format.wrongInput";
 	
 	// 住所文字超過に関するエラーメッセージ
 	public static final String ADDRESS_LENGTH_ERROR_MESSAGE = "address.length.wrongInpu";
@@ -65,6 +65,4 @@ public class ErrorMessage {
 	// 操作履歴画面の操作時刻に関するエラーメッセージ
 	public static final String OPERATION_DATE_FIELD_ERROR_MESSAGE = "operationLog.operationDateField.empty";
 	
-	// 予期せぬエラーに関するエラーメッセージ
-	public static final String UNEXPECTED_ERROR_MESSAGE = "unexpected.error";
 }

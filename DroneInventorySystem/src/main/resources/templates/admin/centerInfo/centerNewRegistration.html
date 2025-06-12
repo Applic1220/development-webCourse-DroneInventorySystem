@@ -54,24 +54,25 @@
             <label class="bordered-label">稼働ステータス＊</label>
             <div class="bordered-group">
                <div class="form-check form-check-inline">
-                   <input class="form-check-input" type="radio" id="statusActive" name="operationalStatus" value="1" th:field="*{operationalStatus}"> 
+                   <input class="form-check-input" type="radio" id="statusActive" name="operationalStatus" value="0" th:field="*{operationalStatus}"> 
                    <label class="form-check-label" for="statusActive">稼働</label>
                </div>
                <div class="form-check form-check-inline">
-                   <input class="form-check-input" type="radio" id="statusInactive" name="operationalStatus" value="0" th:field="*{operationalStatus}"> 
+                   <input class="form-check-input" type="radio" id="statusInactive" name="operationalStatus" value="1" th:field="*{operationalStatus}"> 
                    <label class="form-check-label" for="statusInactive">停止</label>
                </div>
             </div>
             
-            <label for="maximumCapacity" class="bordered-label">最大容量(m3)</label>
-            <input type="number" id="maximumCapacity" name="maximumCapacity" 
+            <label for="maximumCapacity" class="bordered-label">最大容量(m³)</label>
+            <input type="text" id="maximumCapacity" name="maximumCapacity" 
                    class="form-control bordered-input" 
                    th:field="*{maximumCapacity}" 
                    th:classappend="${#fields.hasErrors('maximumCapacity')} ? 'is-invalid' : ''" 
+                   inputmode="numeric" 
             />
 
-            <label for="currentCapacity" class="bordered-label">現在容量(m3)</label>
-            <input type="number" id="currentCapacity" name="currentCapacity" 
+            <label for="currentCapacity" class="bordered-label">現在容量(m³)</label>
+            <input type="text" id="currentCapacity" name="currentCapacity" 
                    class="form-control bordered-input" 
                    th:field="*{currentCapacity}" 
                    th:classappend="${#fields.hasErrors('currentCapacity')} ? 'is-invalid' : ''" 
@@ -82,6 +83,7 @@
                    class="form-control bordered-input" 
                    th:field="*{remarks}" 
                    th:classappend="${#fields.hasErrors('remarks')} ? 'is-invalid' : ''" 
+                   inputmode="numeric" 
             />
             <div th:if="${message}" class="alert alert-success" role="alert">
     <p th:text="${message}"></p>

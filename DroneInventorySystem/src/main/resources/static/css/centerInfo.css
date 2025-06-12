@@ -10,6 +10,8 @@
     padding: 5px 8px;       
     border-radius: 4px;     
     display: inline-block;  
+    text-align: left;
+    width: 100%; 
 }
 .bordered-input {
     border: 1px solid #ccc; 
@@ -17,7 +19,7 @@
 }
 .form-grid-container {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: minmax(100px, 12%) 1fr;
     row-gap: 0px;
     column-gap: 0px;
     align-items: center;
@@ -27,14 +29,15 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     padding:  6px 8px;
-    margin-right: 100px;
     height: 38px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     line-height: normal;
     margin: 0;
     box-sizing: border-box;
+    text-align: left;
+    width: 100%; 
 }
 
 .form-grid-container input.form-control.bordered-input {

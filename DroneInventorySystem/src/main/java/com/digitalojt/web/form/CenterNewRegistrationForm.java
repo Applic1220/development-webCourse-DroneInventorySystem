@@ -30,7 +30,8 @@ public class CenterNewRegistrationForm {
 
 	/**郵便番号*/
     @Size(max = 8, message = "{postCode.length.wrongInput}")
-    @Pattern(regexp = "^[0-9]{3}-[0-9]{4}$", message = "{postCode.format.wrongInput}")
+    @Pattern(regexp = "^[a-zA-Z0-9]{3}-[a-zA-Z0-9]{4}$", message = "{postCode.format.wrongInput}")
+    @Pattern(regexp = "^[0-9-]+$", message = "{invalid.input}")
     @NotNull(message = "{requiredField.empty}")
     @NotBlank(message = "{requiredField.empty}")
 	private String postCode;	
@@ -57,14 +58,16 @@ public class CenterNewRegistrationForm {
     @NotNull(message = "{requiredField.empty}") 
     @Max(value = 1, message = "{invalid.input}")
     @Min(value = 0, message = "{invalid.input}")
-	private Integer operationalStatus = 1;
+	private Integer operationalStatus = 0;
 	
 	/**最大容量(m3)*/
     @Size(max = 10, message = "{maximumCapacity.length.wrongInput}")
+    @Pattern(regexp = "^[0-9]*$", message = "{invalid.input}")
 	private String maximumCapacity;
 	
 	/**現在容量(m3)*/
     @Size(max = 10, message = "{currentCapacity.length.wrongInput}")
+    @Pattern(regexp = "^[0-9]*$", message = "{invalid.input}")
 	private String currentCapacity;
 	
 	/**備考*/

@@ -3,7 +3,7 @@ package com.digitalojt.web.validation;
 import java.util.regex.Pattern;
 
 import com.digitalojt.web.consts.ErrorMessage;
-import com.digitalojt.web.consts.InvalidCharacter;
+import com.digitalojt.web.consts.InputCenterformInvalidCharacter;
 import com.digitalojt.web.exception.ErrorMessageHelper;
 import com.digitalojt.web.form.CenterNewRegistrationForm;
 
@@ -99,7 +99,7 @@ public class CenterInfoNewRegistrationValidatorImpl implements ConstraintValidat
      * @return 不正文字なら true, それ以外は false
      */
     private static boolean isInvalidCharacter(char character) {
-        for (InvalidCharacter invalidChar : InvalidCharacter.values()) {
+        for (InputCenterformInvalidCharacter invalidChar : InputCenterformInvalidCharacter.values()) {
             if (invalidChar.getCharacter() == character) {
             	// 不正文字が見つかった
                 return true;
